@@ -12,7 +12,49 @@ docker run -it \
     -m 4GB \
     -e "discovery.type=single-node" \
     -e "xpack.security.enabled=false" \
-    docker.elastic.co/elasticsearch/elasticsearch:8.4.3
+    docker.elastic.co/elasticsearch/elasticsearch:8.14.3
+
+#from localhost
+docker run -it \
+    --rm \
+    --name elasticsearch \
+    --net elastic \
+    -p 9200:9200 \
+    -p 9300:9300 \
+    -m 4GB \
+    -e "discovery.type=single-node" \
+    -e "xpack.security.enabled=false" \
+    docker.elastic.co/elasticsearch/elasticsearch:8.14.3
+
+
+export ELASTIC_PASSWORD="bbvapMWzvbcykMLn1GkR"
+
+
+#generate password
+docker exec -it elasticsearch ./bin/elasticsearch-setup-passwords auto
+
+PASSWORD elastic = eKWQYCwOLpREZmHZ0LnR
+
+Changed password for user apm_system
+PASSWORD apm_system = lmxjgEN1Qg6AThULnOmJ
+
+Changed password for user kibana_system
+PASSWORD kibana_system = biMIvm1ATirONpBBK4PP
+
+Changed password for user kibana
+PASSWORD kibana = biMIvm1ATirONpBBK4PP
+
+Changed password for user logstash_system
+PASSWORD logstash_system = LhVFVBS6f0PgfiEJvhCJ
+
+Changed password for user beats_system
+PASSWORD beats_system = BNUaqIcKsgdoDPUrl9O0
+
+Changed password for user remote_monitoring_user
+PASSWORD remote_monitoring_user = jA9VxU70BkrYZpN1qaF8
+
+Changed password for user elastic
+PASSWORD elastic = eKWQYCwOLpREZmHZ0LnR
 
 direct from the hub
 docker run -it \
