@@ -27,6 +27,11 @@ docker run -it \
     docker.elastic.co/elasticsearch/elasticsearch:8.14.3
 
 
+docker exec -it es01 /usr/share/elasticsearch/bin/elasticsearch-reset-password -u elastic
+docker exec -it es01 /usr/share/elasticsearch/bin/elasticsearch-create-enrollment-token -s kibana
+
+docker network inspect <net>
+
 export ELASTIC_PASSWORD="bbvapMWzvbcykMLn1GkR"
 
 
